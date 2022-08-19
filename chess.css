@@ -15,7 +15,7 @@ body {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 320px;
+    width: 560px;
     background-color: transparent;
     transform: rotateX(0deg);
     transition: transform .5s linear .3s;
@@ -26,8 +26,8 @@ body {
 }
 
 .game-board__cell {
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     background-color: wheat;
 }
 
@@ -42,8 +42,8 @@ body {
 
 .figure {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     background-color: #fff;
     transform: rotateX(0deg);

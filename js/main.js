@@ -3,6 +3,8 @@ import { rookCheck } from "./rook.js";
 import { bishopCheck } from "./bishop.js";
 import { kingCheck } from "./king.js";
 
+const cellSize = 70;
+const cellMargin = cellSize / 4;
 const src = 'img/';
 let playerMove = true;
 
@@ -85,8 +87,8 @@ const drawFigure = (figure, pos_x, pos_y) => {
         const newFigure = document.createElement('img');
         newFigure.setAttribute('data-x', Number(pos_x) + 1);
         newFigure.setAttribute('data-y', Number(pos_y) + 1);
-        newFigure.style.left = `${10 + 40 * pos_x}px`;
-        newFigure.style.top = `${10 + 40 * pos_y}px`;
+        newFigure.style.left = `${cellMargin + cellSize * pos_x}px`;
+        newFigure.style.top = `${cellMargin + cellSize * pos_y}px`;
 
         switch (figure) {
             // Draw Pawns 
@@ -254,8 +256,8 @@ const takeMove = (selectedCellPos) => {
     // Changing figure possition
     selectedFigure.setAttribute('data-x', Number(selectedCellPosX));
     selectedFigure.setAttribute('data-y', Number(selectedCellPosY));
-    selectedFigure.style.left = `${10 + 40 * (selectedCellPosX - 1)}px`;
-    selectedFigure.style.top = `${10 + 40 * (selectedCellPosY - 1)}px`;
+    selectedFigure.style.left = `${cellMargin + cellSize * (selectedCellPosX - 1)}px`;
+    selectedFigure.style.top = `${cellMargin + cellSize * (selectedCellPosY - 1)}px`;
 
     // Null
     selectedFigure.classList.remove('figure_selected');
