@@ -17,6 +17,12 @@ body {
     flex-wrap: wrap;
     width: 320px;
     background-color: transparent;
+    transform: rotateX(0deg);
+    transition: transform .5s linear .3s;
+}
+
+.game-board_active {
+    transform: rotateX(180deg);
 }
 
 .game-board__cell {
@@ -40,6 +46,8 @@ body {
     height: 20px;
     text-align: center;
     background-color: #fff;
+    transform: rotateX(0deg);
+    transition: transform .5s linear .3s;
 }
 .figure:hover {
     cursor: pointer;
@@ -48,4 +56,12 @@ body {
 .figure_selected {
     border-top: 1px solid red;
     border-left: 1px solid red;
+}
+
+.game-board_active .figure {
+    transform: rotate(180deg);
+}
+
+.btn {
+    margin-left: 120px;
 }
