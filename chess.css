@@ -17,12 +17,12 @@ body {
     flex-wrap: wrap;
     width: 560px;
     background-color: transparent;
-    transform: rotateX(0deg);
+    transform: rotate(0deg);
     transition: transform .5s linear .3s;
 }
 
 .game-board_active {
-    transform: rotateX(180deg);
+    transform: rotate(180deg);
 }
 
 .game-board__cell {
