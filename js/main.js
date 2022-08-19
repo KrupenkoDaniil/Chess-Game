@@ -1,5 +1,6 @@
 import { pawnCheck } from "./pawn.js";
 import { rookCheck } from "./rook.js";
+import { kniteCheck } from "./knite.js";
 import { bishopCheck } from "./bishop.js";
 import { kingCheck } from "./king.js";
 
@@ -204,7 +205,7 @@ const selectMove = (element) => {
                 break;
             case 'k':
                 if (elementName[2] == 'n') {
-                    console.log('Конь');
+                    kniteCheck(elementName[0], +elementPosX, +elementPosY)
                 } else {
                     kingCheck(elementName[0], +elementPosX, +elementPosY)
                 }
