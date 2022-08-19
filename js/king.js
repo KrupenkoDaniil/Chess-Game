@@ -18,7 +18,6 @@ export const kingCheck = (color, pos_x, pos_y) => {
             move.classList.add('game-board__cell_active');
             let moveX = +move.dataset.x;
             let moveY = +move.dataset.y;
-
             if ((board[moveY - 1][moveX - 1] !== null)
                 && (board[moveY - 1][moveX - 1][0] == color)) {
                 move.classList.remove('game-board__cell_active');
