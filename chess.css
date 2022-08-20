@@ -15,10 +15,11 @@ body {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 560px;
+    width: 32vw;
+    outline: 2px solid grey;
     background-color: transparent;
     transform: rotate(0deg);
-    transition: transform .5s linear .3s;
+    transition: transform .5s linear .4s;
 }
 
 .game-board_active {
@@ -26,10 +27,28 @@ body {
 }
 
 .game-board__cell {
-    width: 70px;
-    height: 70px;
+    width: 4vw;
+    height: 4vw;
     background-color: wheat;
 }
+
+.game-board__cell_1::before,
+.game-board__cell_2::before,
+.game-board__cell_3::before,
+.game-board__cell_4::before,
+.game-board__cell_5::before,
+.game-board__cell_6::before,
+.game-board__cell_7::before,
+.game-board__cell_8::before {
+    position: absolute;
+    content: '1';
+    top: -1.5em;
+    left: 1em;
+}
+
+
+.game-board__cell_2::before {}
+
 
 .black {
     background-color: black;
@@ -42,12 +61,12 @@ body {
 
 .figure {
     position: absolute;
-    width: 35px;
-    height: 35px;
+    width: 2vw;
+    height: 2vw;
     text-align: center;
     background-color: #fff;
     transform: rotateX(0deg);
-    transition: transform .5s linear .3s;
+    transition: transform .5s linear .4s, left .3s linear, top .3s linear;
 }
 .figure:hover {
     cursor: pointer;
@@ -64,4 +83,27 @@ body {
 
 .btn {
     margin-left: 120px;
+}
+
+/* Timer */
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    gap: 10px;
+}
+
+.timer__player,
+.timer__foe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    height: 5vh;
+    background-color: gray;
+}
+
+.timer__foe {
+    transform: rotate(180deg);
 }

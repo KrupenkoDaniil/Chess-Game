@@ -4,8 +4,6 @@ import { kniteCheck } from "./knite.js";
 import { bishopCheck } from "./bishop.js";
 import { kingCheck } from "./king.js";
 
-const cellSize = 70;
-const cellMargin = cellSize / 4;
 const src = 'img/';
 let playerMove = true;
 
@@ -78,6 +76,12 @@ const start = () => {
                     newCell.classList.add('black');
                 }
             };
+
+            if (row == 0) {
+                
+            }
+
+
             gameBoard.appendChild(newCell);
             drawFigure(board[row][column], column, row);
         }
@@ -88,8 +92,8 @@ const drawFigure = (figure, pos_x, pos_y) => {
         const newFigure = document.createElement('img');
         newFigure.setAttribute('data-x', Number(pos_x) + 1);
         newFigure.setAttribute('data-y', Number(pos_y) + 1);
-        newFigure.style.left = `${cellMargin + cellSize * pos_x}px`;
-        newFigure.style.top = `${cellMargin + cellSize * pos_y}px`;
+        newFigure.style.left = `${3 + 12.5 * pos_x}%`;
+        newFigure.style.top = `${3 + 12.5 * pos_y}%`;
 
         switch (figure) {
             // Draw Pawns 
@@ -249,16 +253,17 @@ const takeMove = (selectedCellPos) => {
     }
 
     //  Changing board possitions
-    const selectedFigureName = board[selectedFigurePosY - 1][selectedFigurePosX - 1];
+    let selectedFigureName = board[selectedFigurePosY - 1][selectedFigurePosX - 1];
     board[selectedFigurePosY - 1][selectedFigurePosX - 1] = null;
     board[selectedCellPosY - 1][selectedCellPosX - 1] = selectedFigureName;
+
 
 
     // Changing figure possition
     selectedFigure.setAttribute('data-x', Number(selectedCellPosX));
     selectedFigure.setAttribute('data-y', Number(selectedCellPosY));
-    selectedFigure.style.left = `${cellMargin + cellSize * (selectedCellPosX - 1)}px`;
-    selectedFigure.style.top = `${cellMargin + cellSize * (selectedCellPosY - 1)}px`;
+    selectedFigure.style.left = `${2.5 + 12.5 * (selectedCellPosX - 1)}%`;
+    selectedFigure.style.top = `${2.5 + 12.5 * (selectedCellPosY - 1)}%`;
 
     // Null
     selectedFigure.classList.remove('figure_selected');
@@ -268,6 +273,7 @@ const takeMove = (selectedCellPos) => {
     if (((selectedFigure.dataset.y == 1) || (selectedFigure.dataset.y == 8)) && selectedFigure.classList.contains('pawn')) {
         selectedFigure.classList.remove('pawn')
         selectedFigure.classList.add('queen')
+        board[selectedCellPosY-1][selectedCellPosX-1] = selectedFigureName.replace('p','q');
         if (playerMove) {
             selectedFigure.src = `${src}/w_queen.jpeg`
         } else {
